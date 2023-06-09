@@ -1,0 +1,23 @@
+{
+  "name": "ipfs-proxy",
+  "version": "1.0.0",
+  "description": "Http proxy for IPFS upload and gateway",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "pretty": "prettier --write ./src"
+  },
+  "dependencies": {
+    "@helia/json": "^1.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "kubo-rpc-client": "^3.0.1",
+    "prettier": "^2.8.8",
+    "winston": "^3.9.0"
+  }
+}
