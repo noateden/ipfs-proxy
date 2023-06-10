@@ -8,7 +8,7 @@ const fileUpload = require('express-fileupload');
 
 (async function () {
   const port = process.env.PORT || '9000';
-  const ipfsNode = process.env.IPFS_NOD_ENDPOINT || 'http://127.0.0.1:5001';
+  const ipfsNode = process.env.IPFS_NODE_ENDPOINT || 'http://127.0.0.1:5001';
 
   const app = express();
 

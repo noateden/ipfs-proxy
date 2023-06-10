@@ -6,7 +6,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "pretty": "prettier --write ./src"
+    "pretty": "prettier --write ./src",
+    "start": "node src/index.js"
   },
   "dependencies": {
     "@helia/json": "^1.0.0",
