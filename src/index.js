@@ -23,6 +23,7 @@ const fileUpload = require('express-fileupload');
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
+  // this endpoint handle upload JSON data
   app.post('/upload/json', async (request, response) => {
     if (request.body) {
       try {
@@ -61,13 +62,14 @@ const fileUpload = require('express-fileupload');
     }
   });
 
-  app.post('/upload/image', async (request, response) => {
-    if (request.files && request.files.image) {
+  // this endpoint handles upload files
+  app.post('/upload/file', async (request, response) => {
+    if (request.files && request.files.file) {
       try {
         const { create } = await import('kubo-rpc-client');
         const client = create({ url: ipfsNode });
 
-        const { cid } = await client.add(request.files.image.data);
+        const { cid } = await client.add(request.files.file.data);
 
         logger.info('handled upload request', {
           label: 'api',
