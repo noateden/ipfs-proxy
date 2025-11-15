@@ -1,0 +1,27 @@
+services:
+  ipfs-node:
+    image: ipfs/kubo:latest
+    container_name: ipfs
+    restart: always
+    ports:
+      - "4001:4001/tcp"
+      - "4001:4001/udp"
+      - "127.0.0.1:8080:8080" # gateway
+      - "127.0.0.1:5001:5001" # API
+    volumes:
+      - /data/ipfs:/data/ipfs
+
+  ipfs-proxy:
+    container_name: ipfs-proxy
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 127.0.0.1:9000:9000
+    depends_on:
+      - ipfs-node
+    environment:
+     - PORT=9000
+     - IPFS_NODE_ENDPOINT=http://ipfs-node:5001
+    command: yarn start
